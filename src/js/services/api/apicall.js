@@ -13,6 +13,8 @@ export default function apiCall(route, body = {}, method = 'GET') {
             headers,
         };
 
+        if (method !== 'GET') requestDetails.body = JSON.stringify(body);
+
         function handleErrors(response) {
             if (response.ok) {
                 return response.json();
